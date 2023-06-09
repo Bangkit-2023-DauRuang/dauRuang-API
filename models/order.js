@@ -1,5 +1,7 @@
-module.exports = ( sequelize, DataTypes )=> {
-    const transaksi = sequelize.define('transaksi', {
+const { DataTypes } = require("sequelize");
+
+module.exports = ( Sequelize, DataTypes )=> {
+    const order = Sequelize.define('order', {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -42,6 +44,10 @@ module.exports = ( sequelize, DataTypes )=> {
             allowNull: false,
             defaultValue: false,
           },
+          waktu_order: {
+            type: DataTypes.TIME,
+            allowNull: false,
+          },
           createdAt: {
             type: DataTypes.DATE,
             allowNull: false,
@@ -49,13 +55,9 @@ module.exports = ( sequelize, DataTypes )=> {
           updateAt: {
             type: DataTypes.DATE,
             allowNull: false,
-          },
-          waktu_order: {
-            type: DataTypes.TIME,
-            allowNull: false,
-          },
+          }
       }, {
         tableName:'order'
       });
-      return transaksi;
+      return order;
 }
